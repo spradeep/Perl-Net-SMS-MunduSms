@@ -121,11 +121,9 @@ sub send_sms
 1;
 
 __END__
-# Below is stub documentation for your module. You'd better edit it!
-
 =head1 NAME
 
-Net::SMS::MunduSMS - Perl extension for blah blah blah
+Net::SMS::MunduSMS - Perl interface for sending SMS using the mundusms.com service.
 
 =head1 SYNOPSIS
 
@@ -137,16 +135,15 @@ Net::SMS::MunduSMS - Perl extension for blah blah blah
 
 =head1 DESCRIPTION
 
-Stub documentation for Net::SMS::MunduSMS, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
+The Net::SMS::MunduSMS Perl module allows you to send SMS in your Perl code, using the paid service of mundusms.com
 
 Blah blah blah.
 
-=head2 EXPORT
+=head2 METHODS
 
-None by default.
+=item new
 
+Constructor, requires two named arguments namely the username & the password for the mundusms.com account.
 
 
 =head1 SEE ALSO
