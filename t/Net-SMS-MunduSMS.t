@@ -1,15 +1,14 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl Net-SMS-MunduSMS.t'
+use Test::More;
 
-#########################
+plan tests => 5;
 
-# change 'tests => 1' to 'tests => last_test_to_print';
+use_ok('Net::SMS::MunduSMS');
+require_ok('Net::SMS::MunduSMS');
 
-use Test::More tests => 1;
-BEGIN { use_ok('Net::SMS::MunduSMS') };
+use lib qw[/var/www/test/Net-SMS-MunduSMS/lib/];
+use Net::SMS::MunduSMS;
+my $ms = Net::SMS::MunduSMS->new( username => '919988445566', password => 'passme' );
 
-#########################
-
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
-
+isa_ok( $ms, 'Net::SMS::MunduSMS' );
+ok( $ms->can('add_sms'),  'Has method add_sms' );
+ok( $ms->can('send_sms'), 'Has method send_sms' );
