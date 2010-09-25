@@ -128,7 +128,7 @@ Net::SMS::MunduSMS - Perl interface for sending SMS using the mundusms.com servi
 =head1 SYNOPSIS
 
   use Net::SMS::MunduSMS;
-  my $m = MunduSms->new(username => '919988445566' ,password => 'passme' );
+  my $m = Net::SMS::MunduSMS->new(username => '919988445566' ,password => 'passme' );
 
   $m->add_sms(to => '+919866544992', message => 'hello');
   $m->send_sms;
