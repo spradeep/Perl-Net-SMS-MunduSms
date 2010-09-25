@@ -137,29 +137,65 @@ Net::SMS::MunduSMS - Perl interface for sending SMS using the mundusms.com servi
 
 The Net::SMS::MunduSMS Perl module allows you to send SMS in your Perl code, using the paid service of mundusms.com
 
-Blah blah blah.
-
 =head2 METHODS
 
 =item new
 
 Constructor, requires two named arguments namely the username & the password for the mundusms.com account.
 
+=item add_sms
+
+Add sms to the internal queue, it take two named arguments, to & message.
+
+=item send_sms
+
+Send the queued messages stored internally.
+
+=head1 REQUIRES
+
+L<WWW::Mechanize>
 
 =head1 SEE ALSO
 
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
+L<Net::SMS::WAY2SMS>
 
 =head1 AUTHOR
 
 S Pradeep, E<lt>spradeep@cpan.orgE<gt>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-net-sms-mundusms at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-SMS-MunduSMS>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Net::SMS::MunduSMS
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Net-SMS-MunduSMS>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Net-SMS-MunduSMS>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Net-SMS-MunduSMS>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/Net-SMS-MunduSMS/>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
