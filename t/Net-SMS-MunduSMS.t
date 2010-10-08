@@ -12,3 +12,6 @@ my $ms = Net::SMS::MunduSMS->new( username => '919988445566', password => 'passm
 isa_ok( $ms, 'Net::SMS::MunduSMS' );
 ok( $ms->can('add_sms'),  'Has method add_sms' );
 ok( $ms->can('send_sms'), 'Has method send_sms' );
+ok( !$ms->_login, 'Works OK, did not login' );
+
+done_testing;
