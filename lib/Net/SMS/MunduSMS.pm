@@ -16,8 +16,8 @@ sub new
 
     my %params = %args;
 
-    $params{sms}  = [];
-    $params{mech} = WWW::Mechanize->new();
+    $params{sms} = [];
+    $params{mech} = WWW::Mechanize->new( onerror => sub { } );
     $params{mech}->agent_alias('Windows IE 6');
 
     return bless \%params, $class;
@@ -121,6 +121,7 @@ sub send_sms
 1;
 
 __END__
+
 =head1 NAME
 
 Net::SMS::MunduSMS - Perl interface for sending SMS using the mundusms.com service.
@@ -204,6 +205,5 @@ Copyright (C) 2010 by S Pradeep
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
-
 
 =cut
