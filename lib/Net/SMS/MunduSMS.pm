@@ -51,7 +51,7 @@ sub _login
         }
     );
 
-    $self->{mech}->follow_link( url_regex => qr/sendsms.aspx/i );
+    return 0 unless ( $self->{mech}->find_link( url_regex => qr/sendsms.aspx/i ) && $self->{mech}->follow_link( url_regex => qr/sendsms.aspx/i ) );
 
     return ( $self->{mech}->uri =~ /sendsms.aspx/i ) ? 1 : 0;
 }
