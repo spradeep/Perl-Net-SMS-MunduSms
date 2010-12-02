@@ -5,10 +5,9 @@ use strict;
 use warnings;
 use WWW::Mechanize;
 
-our $VERSION = '0.02';
+our $VERSION = '0.021';
 
-sub new
-{
+sub new {
     my $class = shift;
     my %args  = @_;
 
@@ -23,8 +22,7 @@ sub new
     return bless \%params, $class;
 }
 
-sub _login
-{
+sub _login {
     my $self = shift;
 
     $self->{mech}->get(q[http://www.mundusms.com/web/Login.aspx]);
@@ -51,13 +49,12 @@ sub _login
         }
     );
 
-    return 0 unless ( $self->{mech}->find_link( url_regex => qr/sendsms.aspx/i ) && $self->{mech}->follow_link( url_regex => qr/sendsms.aspx/i ) );
+    return ( $self->{mech}->uri =~ /UserHome.aspx$/ ) ? 1 : 0;
 
-    return ( $self->{mech}->uri =~ /sendsms.aspx/i ) ? 1 : 0;
+    return 0 unless ( $self->{mech}->find_link( url_regex => qr/sendsms.aspx/i ) && $self->{mech}->follow_link( url_regex => qr/sendsms.aspx/i ) );
 }
 
-sub add_sms
-{
+sub add_sms {
     my $self = shift;
     my %args = @_;
 
@@ -66,14 +63,12 @@ sub add_sms
     return 1;
 }
 
-sub send_sms
-{
+sub send_sms {
     my $self = shift;
 
     $self->{logged_in} = $self->_login unless ( $self->{logged_in} );
 
-    while ( my $sms = pop( @{ $self->{sms} } ) )
-    {
+    while ( my $sms = pop( @{ $self->{sms} } ) ) {
         $self->{mech}->follow_link( url_regex => qr/sendsms.aspx/i ) unless ( $self->{mech}->uri =~ /sendsms.aspx/i );
 
         $self->{mech}->form_number(1);
