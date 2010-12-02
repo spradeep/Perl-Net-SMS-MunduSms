@@ -123,7 +123,7 @@ Net::SMS::MunduSMS - Perl interface for sending SMS using the mundusms.com servi
 
 =head1 VERSION
 
-Version 0.02
+Version 0.021
 
 =head1 SYNOPSIS
 
